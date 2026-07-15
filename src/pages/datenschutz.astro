@@ -1,0 +1,81 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Datenschutzerklärung — nis2scan" description="Datenschutzerklärung nach DSGVO.">
+  <section class="section">
+    <div class="container prose">
+      <div class="notice">
+        <strong>Vor Veröffentlichung ausfüllen.</strong> Diese Erklärung deckt
+        die <em>Website</em> nis2scan.de ab. Felder mit <code>[…]</code> und die
+        Empfängerliste (Hosting, ggf. Analyse) sind vor dem Livegang mit den
+        real eingesetzten Diensten zu vervollständigen. Sobald die SaaS
+        (Registrierung, Scan-Daten) live geht, ist eine erweiterte Erklärung
+        nötig. Keine Rechtsberatung.
+      </div>
+
+      <h1>Datenschutzerklärung</h1>
+
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        Verantwortlich im Sinne der DSGVO ist [FIRMA / INHABER], [ANSCHRIFT],
+        [E-MAIL]. Details siehe <a href="/impressum/">Impressum</a>.
+      </p>
+
+      <h2>2. Verarbeitung beim Besuch der Website</h2>
+      <p>
+        Beim Aufruf dieser Website verarbeitet der Hosting-Anbieter technisch
+        notwendige Server-Logfiles (u. a. IP-Adresse, Zeitpunkt, aufgerufene
+        Ressource, User-Agent). Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO
+        (berechtigtes Interesse an sicherem, störungsfreiem Betrieb).
+        Speicherdauer: [TODO — z. B. 7 Tage].
+      </p>
+
+      <h2>3. Empfänger / Auftragsverarbeiter</h2>
+      <table>
+        <thead>
+          <tr><th>Empfänger</th><th>Zweck</th><th>Grundlage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>[HOSTING-ANBIETER, EU-Region]</td><td>Auslieferung der Website, Server-Logs</td><td>AVV nach Art. 28 DSGVO</td></tr>
+        </tbody>
+      </table>
+      <p class="hint">Weitere Empfänger (z. B. Analyse, CDN) nur, wenn tatsächlich eingesetzt — dann hier ergänzen.</p>
+
+      <h2>4. Cookies</h2>
+      <p>
+        Diese Website setzt keine nicht-notwendigen Cookies und kein Tracking
+        ein. Sollten künftig einwilligungsbedürftige Cookies hinzukommen, wird
+        vorab die Einwilligung nach § 25 Abs. 1 TDDDG i. V. m. Art. 6 Abs. 1
+        lit. a DSGVO eingeholt.
+      </p>
+
+      <h2>5. Ihre Rechte</h2>
+      <p>
+        Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16),
+        Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit
+        (Art. 20) sowie Widerspruch (Art. 21 DSGVO).
+      </p>
+
+      <h2>6. Beschwerderecht</h2>
+      <p>
+        Sie können sich nach Art. 77 DSGVO bei einer Aufsichtsbehörde
+        beschweren — insbesondere im Mitgliedstaat Ihres gewöhnlichen
+        Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen
+        Verstoßes. Zuständige Behörde für den Betreiber: [TODO — Aufsichtsbehörde
+        des Firmensitzes].
+      </p>
+
+      <h2>7. Änderungen</h2>
+      <p>
+        Wir passen diese Datenschutzerklärung an, wenn Änderungen der
+        Verarbeitung dies erfordern. Stand: [DATUM].
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .notice { background: #fffbeb; border: 1px solid #fcd34d; color: #78350f; border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: 2rem; font-size: 0.95rem; }
+    .hint { color: var(--slate); font-size: 0.9rem; }
+  </style>
+</Base>
