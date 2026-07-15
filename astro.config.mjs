@@ -5,5 +5,5 @@ import { defineConfig } from "astro/config";
 // correct.
 export default defineConfig({
   site: "https://nis2scan.de",
-  build: { format: "directory" },
+  build: { format: "directory", inlineStylesheets: "always" },
 });
