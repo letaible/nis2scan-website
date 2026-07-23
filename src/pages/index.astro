@@ -25,16 +25,16 @@ const icons = {
 };
 
 const features = [
-  [icons.law, "Rechtsbezug pro Befund", "Jedes Finding zitiert wörtlich §30 Abs. 2 BSIG und den passenden ISO-27001:2022-Control — die Sprache, die Ihr Auditor spricht."],
+  [icons.law, "Rechtsbezug pro Befund", "Jedes Finding zitiert wörtlich §30 Abs. 2 BSIG und den passenden ISO-27001:2022-Control. Das ist die Sprache, die Ihr Auditor spricht."],
   [icons.eye, "Strikt read-only", "Die Engine hat keinerlei Schreibrechte. nis2scan liest Ihre Cloud-Konfiguration, es verändert nie eine Ressource."],
-  [icons.check, "Positivnachweise", "Auch was in Ordnung ist, wird dokumentiert — mit maschinenlesbarem Beleg. Für ein Audit zählt der Nachweis, nicht nur der Mangel."],
-  [icons.alert, "Fail-safe", "Was nicht geprüft werden konnte, wird als Fehler gemeldet — niemals als „bestanden“. Das Tool behauptet nie mehr, als es geprüft hat."],
+  [icons.check, "Positivnachweise", "Auch was in Ordnung ist, wird dokumentiert, mit maschinenlesbarem Beleg. Für ein Audit zählt der Nachweis, nicht nur der Mangel."],
+  [icons.alert, "Fail-safe", "Was nicht geprüft werden konnte, wird als Fehler gemeldet und niemals als „bestanden“. Das Tool behauptet nie mehr, als es geprüft hat."],
   [icons.list, "Attestierungs-Checkliste", "Was ein Scanner prinzipiell nicht sehen kann (Prozesse, Schulungen, Verantwortlichkeiten), wird als Checkliste an Sie übergeben."],
-  [icons.key, "Permissions-Generator", "nis2scan erzeugt die exakte Least-Privilege-Leseberechtigung selbst — als IAM-Policy oder Azure-RBAC-Rolle, auf Wunsch als Terraform."],
+  [icons.key, "Permissions-Generator", "nis2scan erzeugt die exakte Least-Privilege-Leseberechtigung selbst: als IAM-Policy, als Azure-RBAC-Rolle oder gleich als Terraform."],
 ];
 ---
 
-<Base title="nis2scan — NIS2 (§30 BSIG) Compliance-Scanner für AWS & Azure">
+<Base title="nis2scan · NIS2 (§30 BSIG) Compliance-Scanner für AWS & Azure">
   <!-- Hero (dunkel) -->
   <section class="hero-dark">
     <div class="container hero-grid">
@@ -43,7 +43,7 @@ const features = [
         <h1>Ihre Cloud. Der §30 BSIG.<br /><span class="accent-word">Ein Scan.</span></h1>
         <p class="lede">
           Das NIS2-Umsetzungsgesetz verpflichtet rund 30.000 Unternehmen zu zehn
-          konkreten Sicherheitsmaßnahmen — ohne Übergangsfrist. nis2scan prüft
+          konkreten Sicherheitsmaßnahmen, ohne Übergangsfrist. nis2scan prüft
           AWS &amp; Azure dagegen und liefert den auditfähigen Bericht auf
           Deutsch, mit Gesetzeszitat in jedem Befund.
         </p>
@@ -56,7 +56,7 @@ const features = [
         <div class="codeblock hero-code">
           <span class="c"># installieren (Python 3.12+)</span><br />
           <span class="g">$</span> pip install nis2scan<br /><br />
-          <span class="c"># scannen — read-only</span><br />
+          <span class="c"># scannen (read-only)</span><br />
           <span class="g">$</span> nis2scan scan --provider aws<br /><br />
           <span class="c">Erfüllungsgrad nach §30 Abs. 2 BSIG:</span><br />
           &nbsp;Nr. 8 Kryptographie&nbsp;&nbsp;&nbsp;<span style="color:#86efac">erfüllt</span><br />
@@ -79,9 +79,9 @@ const features = [
   <section class="section">
     <div class="container">
       <div class="grid cols-3">
-        <div class="stat-card"><div class="stat">§30</div><p>zehn gesetzlich verpflichtende Risikomanagement-Maßnahmen — seit Dezember 2025 in Kraft.</p></div>
+        <div class="stat-card"><div class="stat">§30</div><p>zehn gesetzlich verpflichtende Risikomanagement-Maßnahmen, in Kraft seit Dezember 2025.</p></div>
         <div class="stat-card"><div class="stat">~30.000</div><p>betroffene Einrichtungen in Deutschland (besonders wichtige &amp; wichtige Einrichtungen, §28 BSIG).</p></div>
-        <div class="stat-card"><div class="stat">§38</div><p>Billigungs- und Überwachungspflicht der Geschäftsleitung für das Risikomanagement — samt Schulungspflicht.</p></div>
+        <div class="stat-card"><div class="stat">§38</div><p>Billigungs- und Überwachungspflicht der Geschäftsleitung für das Risikomanagement, samt Schulungspflicht.</p></div>
       </div>
     </div>
   </section>
@@ -112,19 +112,19 @@ const features = [
         <div class="step">
           <h3>Leserechte erzeugen</h3>
           <p><code>nis2scan permissions</code> generiert die minimale
-          Least-Privilege-Rolle für Ihre Cloud — als IAM-Policy, Azure-RBAC
-          oder fertiges Terraform. Mehr Zugriff bekommt der Scanner nie.</p>
+          Least-Privilege-Rolle für Ihre Cloud, wahlweise als IAM-Policy,
+          Azure-RBAC oder fertiges Terraform. Mehr Zugriff bekommt der Scanner nie.</p>
         </div>
         <div class="step">
           <h3>Scannen</h3>
           <p><code>nis2scan scan</code> prüft alle zehn §30-Bereiche
-          read-only — lokal von Ihrem Rechner oder aus Ihrer CI. Ihre Daten
+          read-only, lokal von Ihrem Rechner oder aus Ihrer CI. Ihre Daten
           verlassen Ihre Umgebung nicht.</p>
         </div>
         <div class="step">
           <h3>Bericht übergeben</h3>
           <p>Deutscher Bericht mit Erfüllungsgrad je Maßnahme, Gesetzeszitat
-          je Befund, Positivnachweisen und Attestierungs-Checkliste — bereit
+          je Befund, Positivnachweisen und Attestierungs-Checkliste. Bereit
           für Auditor und Geschäftsleitung.</p>
         </div>
       </div>
@@ -135,33 +135,33 @@ const features = [
   <section class="section band" id="abdeckung">
     <div class="container cov-grid">
       <div>
-        <p class="eyebrow">Ehrliche Grenzen</p>
-        <h2 class="h-underline">Was nis2scan abdeckt — und was bewusst nicht.</h2>
+        <p class="eyebrow">Grenzen</p>
+        <h2 class="h-underline">Was nis2scan abdeckt und was nicht.</h2>
         <p class="lede" style="margin-top:1.25rem">
           NIS2 ist mehr als Technik. nis2scan übernimmt den cloud-technisch
-          prüfbaren Teil — und benennt den Rest, statt ihn zu verschweigen.
+          prüfbaren Teil und benennt den Rest, statt ihn zu verschweigen.
         </p>
       </div>
       <div class="covlist">
         <div class="covline yes"><span class="mark">✓</span>
-          <p>§30 Abs. 2 — der cloud-technische Teil aller zehn Maßnahmen
+          <p>§30 Abs. 2: der cloud-technische Teil aller zehn Maßnahmen
           <small>154 automatisierte Checks für AWS, Azure und GCP</small></p>
         </div>
         <div class="covline yes"><span class="mark">✓</span>
-          <p>Organisatorische §30-Pflichten — als Attestierungs-Checkliste
+          <p>Organisatorische §30-Pflichten als Attestierungs-Checkliste
           <small>Richtlinien, Prozesse, Verantwortlichkeiten: strukturiert zur Eigenbestätigung übergeben</small></p>
         </div>
         <div class="covline no"><span class="mark">✕</span>
-          <p>§32/§33 — Meldung erheblicher Sicherheitsvorfälle ans BSI
-          <small>ein manueller Meldeprozess mit Fristen; kein Scanner kann ihn für Sie ausführen</small></p>
+          <p>§32/§33: Meldung erheblicher Sicherheitsvorfälle ans BSI
+          <small>ein manueller Meldeprozess mit Fristen, den kein Scanner für Sie ausführen kann</small></p>
         </div>
         <div class="covline no"><span class="mark">✕</span>
-          <p>§38 — Billigung, Überwachung und Schulung der Geschäftsleitung
+          <p>§38: Billigung, Überwachung und Schulung der Geschäftsleitung
           <small>persönliche Organpflicht; der Bericht liefert die Entscheidungsgrundlage dafür</small></p>
         </div>
         <div class="covline no"><span class="mark">✕</span>
-          <p>§31 — Zusatzpflichten für Betreiber kritischer Anlagen (KRITIS)
-          <small>u. a. Systeme zur Angriffserkennung — eigener Pflichtenkreis jenseits des Scans</small></p>
+          <p>§31: Zusatzpflichten für Betreiber kritischer Anlagen (KRITIS)
+          <small>u. a. Systeme zur Angriffserkennung, ein eigener Pflichtenkreis jenseits des Scans</small></p>
         </div>
       </div>
     </div>
@@ -172,7 +172,7 @@ const features = [
     <div class="container recht-grid">
       <div>
         <p class="eyebrow">Der Unterschied</p>
-        <h2 class="h-underline">Nicht nur „Fehlkonfiguration“ — sondern welcher Paragraf.</h2>
+        <h2 class="h-underline">Nicht nur „Fehlkonfiguration“, sondern auch der Paragraf dazu.</h2>
         <p class="lede" style="margin:1.25rem 0">
           Jeder Rechtsbezug hat ein dokumentiertes Vier-Augen-Review gegen den
           Gesetzestext durchlaufen; das Protokoll liegt offen im Repository.
@@ -187,7 +187,7 @@ const features = [
         </div>
         <dl>
           <dt>Rechtsgrundlage</dt>
-          <dd>§30 Abs. 2 Nr. 8 BSIG — „Konzepte und Verfahren für den Einsatz von Kryptografie und Verschlüsselung“.</dd>
+          <dd>§30 Abs. 2 Nr. 8 BSIG: „Konzepte und Verfahren für den Einsatz von Kryptografie und Verschlüsselung“.</dd>
           <dt>ISO 27001:2022</dt>
           <dd>A.8.24 Nutzung von Kryptografie</dd>
           <dt>Behebung</dt>
@@ -221,14 +221,14 @@ const features = [
       <div class="faq" style="margin-top:1.75rem">
         <details>
           <summary>Ist nis2scan Rechtsberatung oder eine Zertifizierung?</summary>
-          <p>Nein — bewusst nicht. nis2scan erstellt technische Nachweise und
+          <p>Nein, und zwar mit Absicht. nis2scan erstellt technische Nachweise und
           Befunde mit belegter Rechtsgrundlage. Die Bewertung Ihrer
           Gesamt-Compliance bleibt bei Ihnen, Ihrem Auditor und ggf. Ihrer
           Rechtsberatung.</p>
         </details>
         <details>
           <summary>Welche Zugriffe braucht der Scanner?</summary>
-          <p>Ausschließlich Leserechte — die exakte Minimal-Berechtigung
+          <p>Ausschließlich Leserechte. Die exakte Minimal-Berechtigung
           erzeugt <code>nis2scan permissions</code> für Sie. Die Engine
           enthält keinerlei Schreiboperationen; das ist im Quellcode
           nachprüfbar.</p>
@@ -238,18 +238,18 @@ const features = [
           <p>Der Kern ist kostenlos und Open Source (Apache 2.0): alle Checks,
           alle Provider, deutsche Reports, Attestierungs-Checkliste.
           Kostenpflichtige Stufen ergänzen Komfort und Skalierung (u. a.
-          PDF-Export, kontinuierliche Scans) — nie die Korrektheit.</p>
+          PDF-Export, kontinuierliche Scans), aber nie die Korrektheit.</p>
         </details>
         <details>
           <summary>Wohin gehen meine Scan-Daten?</summary>
-          <p>Nirgendwohin — der CLI-Scan läuft vollständig in Ihrer Umgebung.
+          <p>Nirgendwohin. Der CLI-Scan läuft vollständig in Ihrer Umgebung.
           Berichte entstehen lokal; ein Export-Profil pseudonymisiert auf
           Wunsch alle Ressourcen-Bezeichner für die Weitergabe.</p>
         </details>
         <details>
           <summary>Woher kommt der Rechtsbezug der Checks?</summary>
           <p>Jede Zuordnung zu §30 BSIG und ISO 27001:2022 hat ein
-          dokumentiertes Vier-Augen-Review gegen den Normtext durchlaufen —
+          dokumentiertes Vier-Augen-Review gegen den Normtext durchlaufen.
           Mapping und Review-Protokoll liegen offen im Repository.</p>
         </details>
       </div>
@@ -261,7 +261,7 @@ const features = [
     <div class="container cta">
       <h2 style="color:#fff">In fünf Minuten wissen, wo Sie stehen.</h2>
       <p class="lede" style="margin:0 auto 1.75rem">
-        Kostenlos und quelloffen. Read-only-Zugang genügt — der auditfähige
+        Kostenlos und quelloffen. Read-only-Zugang genügt, der auditfähige
         Bericht kommt auf Deutsch.
       </p>
       <div class="hero-cta" style="justify-content:center">
