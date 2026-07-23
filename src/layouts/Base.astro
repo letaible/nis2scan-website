@@ -43,6 +43,18 @@ const t =
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      // Strato-Webspace verarbeitet keine .htaccess, daher Client-Redirect auf
+      // HTTPS. Vorher ein Probe-Fetch: nur umleiten, wenn TLS wirklich
+      // funktioniert (sonst bliebe die Seite bei fehlendem Zertifikat haengen).
+      if (location.protocol === "http:" && location.hostname !== "localhost") {
+        fetch("https://" + location.host + "/favicon.svg", { mode: "no-cors", cache: "no-store" })
+          .then(function () {
+            location.replace("https://" + location.host + location.pathname + location.search + location.hash);
+          })
+          .catch(function () {});
+      }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={desc} />
