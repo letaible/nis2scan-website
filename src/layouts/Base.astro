@@ -1,14 +1,46 @@
 ---
 import "../styles/global.css";
-const { title, description } = Astro.props;
+const { title, description, lang = "de", altUrl } = Astro.props;
 const desc =
   description ??
-  "Open-Source-Scanner für §30 BSIG (NIS2): prüft AWS & Azure gegen die zehn Pflichtmaßnahmen, jeder Befund mit Rechtsgrundlage.";
+  (lang === "en"
+    ? "Open-source scanner for §30 BSIG (the German NIS2 implementation in the BSI Act): checks AWS & Azure against the ten mandatory measures, every finding with its legal basis."
+    : "Open-Source-Scanner für §30 BSIG (NIS2): prüft AWS & Azure gegen die zehn Pflichtmaßnahmen, jeder Befund mit Rechtsgrundlage.");
 const year = new Date().getFullYear();
+const resolvedAltUrl = altUrl ?? (lang === "de" ? "/en/" : "/");
+const home = lang === "en" ? "/en/" : "/";
+const kontaktHref = lang === "en" ? "/en/contact/" : "/kontakt/";
+
+const t =
+  lang === "en"
+    ? {
+        brandAria: "nis2scan homepage",
+        navFeatures: "Features",
+        navLegal: "Legal mapping",
+        navGithub: "GitHub",
+        navCta: "Get started",
+        footNote:
+          "Open source (Apache 2.0). A product of Letaible GmbH. Not a compliance certificate or legal advice, but the technical evidence layer underneath.",
+        footKontakt: "Contact",
+        footImpressum: "Imprint (German)",
+        footDatenschutz: "Privacy (German)",
+      }
+    : {
+        brandAria: "nis2scan Startseite",
+        navFeatures: "Funktionen",
+        navLegal: "Rechtsbezug",
+        navGithub: "GitHub",
+        navCta: "Loslegen",
+        footNote:
+          "Open Source (Apache 2.0). Ein Produkt der Letaible GmbH. Kein Compliance-Zertifikat und keine Rechtsberatung, sondern die technische Nachweis-Ebene darunter.",
+        footKontakt: "Kontakt",
+        footImpressum: "Impressum",
+        footDatenschutz: "Datenschutz",
+      };
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,15 +54,16 @@ const year = new Date().getFullYear();
   <body>
     <header class="site-head">
       <div class="container head-inner">
-        <a href="/" class="brand" aria-label="nis2scan Startseite">
+        <a href={home} class="brand" aria-label={t.brandAria}>
           <span class="brand-mark">§30</span>
           <span class="brand-word">nis2scan</span>
         </a>
         <nav class="nav">
-          <a href="/#funktionen">Funktionen</a>
-          <a href="/#recht">Rechtsbezug</a>
-          <a href="https://github.com/VVulpe/nis2scan" rel="noopener">GitHub</a>
-          <a class="btn btn-primary btn-sm" href="https://github.com/VVulpe/nis2scan#installation" rel="noopener">Loslegen</a>
+          <a href={`${home}#funktionen`}>{t.navFeatures}</a>
+          <a href={`${home}#recht`}>{t.navLegal}</a>
+          <a href="https://github.com/VVulpe/nis2scan" rel="noopener">{t.navGithub}</a>
+          <a class="btn btn-primary btn-sm" href="https://github.com/VVulpe/nis2scan#installation" rel="noopener">{t.navCta}</a>
+          <a class="lang-switch" href={resolvedAltUrl}>{lang === "de" ? "EN" : "DE"}</a>
         </nav>
       </div>
     </header>
@@ -43,19 +76,15 @@ const year = new Date().getFullYear();
       <div class="container foot-inner">
         <div>
           <span class="brand-word foot-brand">nis2scan</span>
-          <p class="foot-note">
-            Open Source (Apache 2.0). Ein Produkt der Letaible GmbH.
-            Kein Compliance-Zertifikat und keine Rechtsberatung, sondern die
-            technische Nachweis-Ebene darunter.
-          </p>
+          <p class="foot-note">{t.footNote}</p>
         </div>
         <nav class="foot-links">
           <a href="https://github.com/VVulpe/nis2scan" rel="noopener">GitHub</a>
           <a href="https://pypi.org/project/nis2scan/" rel="noopener">PyPI</a>
           <a href="https://letaible.de" rel="noopener">letaible</a>
-          <a href="/kontakt/">Kontakt</a>
-          <a href="/impressum/">Impressum</a>
-          <a href="/datenschutz/">Datenschutz</a>
+          <a href={kontaktHref}>{t.footKontakt}</a>
+          <a href="/impressum/">{t.footImpressum}</a>
+          <a href="/datenschutz/">{t.footDatenschutz}</a>
         </nav>
       </div>
       <div class="container foot-copy">© {year} Letaible GmbH · nis2scan</div>
@@ -79,8 +108,9 @@ const year = new Date().getFullYear();
       .nav a.btn { color: #fff; }
       .nav a.btn:hover { color: #fff; }
       .btn-sm { padding: 0.5rem 0.9rem; font-size: 0.9rem; }
+      .nav a.lang-switch { border: 1px solid var(--border); border-radius: 8px; padding: 0.25rem 0.55rem; }
       @media (max-width: 680px) {
-        .nav a:not(.btn) { display: none; }
+        .nav a:not(.btn):not(.lang-switch) { display: none; }
       }
       .site-foot { border-top: 1px solid var(--border); background: var(--paper); margin-top: 4rem; padding: 2.5rem 0 1.5rem; }
       .foot-inner { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
