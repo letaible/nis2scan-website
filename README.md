@@ -1,4 +1,4 @@
-# nis2scan.de — Website
+# Website nis2scan.de
 
 Statische Landingpage (Astro) für das Produkt nis2scan. Ein Produkt von letaible.
 
@@ -13,7 +13,7 @@ npm run preview    # gebautes dist/ lokal ansehen
 
 ## Deployment
 
-`dist/` ist reines statisches HTML/CSS ohne externe Requests — hostbar auf
+`dist/` ist reines statisches HTML/CSS ohne externe Requests. Hostbar auf
 Strato-Webspace (FTP-Upload von `dist/`), Cloudflare Pages oder GitHub Pages.
 `site` in `astro.config.mjs` steht auf `https://nis2scan.de`.
 
