@@ -59,15 +59,20 @@ const t =
     <title>{title}</title>
     <meta name="description" content={desc} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://nis2scan.de/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <header class="site-head">
       <div class="container head-inner">
         <a href={home} class="brand" aria-label={t.brandAria}>
-          <span class="brand-mark">§30</span>
+          <span class="brand-mark"><span class="brand-para">§</span>30</span>
           <span class="brand-word">nis2scan</span>
         </a>
         <nav class="nav">
@@ -110,9 +115,10 @@ const t =
       .head-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
       .brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; }
       .brand-mark {
-        background: var(--navy-800); color: #fff; font-weight: 700;
+        background: linear-gradient(135deg, #12294d, #0b1b34); color: #fff; font-weight: 700;
         border-radius: 8px; padding: 0.15rem 0.45rem; font-size: 0.95rem;
       }
+      .brand-para { color: #f59e0b; }
       .brand-word { font-weight: 700; color: var(--navy-900); font-size: 1.1rem; letter-spacing: -0.01em; }
       .nav { display: flex; align-items: center; gap: 1.25rem; }
       .nav a { text-decoration: none; color: var(--slate); font-weight: 500; font-size: 0.95rem; }
