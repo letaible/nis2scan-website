@@ -39,12 +39,12 @@ const year = new Date().getFullYear();
       <slot />
     </main>
 
-    <footer class="site-foot">
+    <footer class="site-foot foot-dark">
       <div class="container foot-inner">
         <div>
           <span class="brand-word foot-brand">nis2scan</span>
           <p class="foot-note">
-            Open Source (Apache 2.0). Ein Produkt von letaible.
+            Open Source (Apache 2.0). Ein Produkt der Letaible GmbH.
             Kein Compliance-Zertifikat, keine Rechtsberatung — die technische
             Nachweis-Ebene darunter.
           </p>
@@ -52,11 +52,13 @@ const year = new Date().getFullYear();
         <nav class="foot-links">
           <a href="https://github.com/VVulpe/nis2scan" rel="noopener">GitHub</a>
           <a href="https://pypi.org/project/nis2scan/" rel="noopener">PyPI</a>
+          <a href="https://letaible.de" rel="noopener">letaible</a>
+          <a href="/kontakt/">Kontakt</a>
           <a href="/impressum/">Impressum</a>
           <a href="/datenschutz/">Datenschutz</a>
         </nav>
       </div>
-      <div class="container foot-copy">© {year} letaible · nis2scan</div>
+      <div class="container foot-copy">© {year} Letaible GmbH · nis2scan</div>
     </footer>
 
     <style>

@@ -1,0 +1,61 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Kontakt — nis2scan" description="Kontaktformular zu nis2scan.">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Kontakt</p>
+      <h1 class="h-underline">Schreiben Sie uns.</h1>
+      <p class="lede" style="margin:1.25rem 0 2rem">
+        Fragen zu nis2scan, Feedback oder Interesse an einem Pilotprojekt?
+        Wir antworten in der Regel innerhalb von zwei Werktagen.
+      </p>
+
+      <p id="sent-ok" class="ok" hidden>
+        Vielen Dank! Ihre Nachricht wurde versendet — wir melden uns zeitnah.
+      </p>
+      <p id="sent-err" class="err" hidden>
+        Das hat leider nicht geklappt. Bitte schreiben Sie uns direkt an
+        <a href="mailto:info@letaible.de">info@letaible.de</a>.
+      </p>
+
+      <form class="form" method="post" action="/kontakt.php">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required maxlength="200" autocomplete="name" />
+        </div>
+        <div>
+          <label for="email">E-Mail-Adresse</label>
+          <input id="email" name="email" type="email" required maxlength="320" autocomplete="email" />
+        </div>
+        <div>
+          <label for="message">Nachricht</label>
+          <textarea id="message" name="message" rows="7" required maxlength="5000"></textarea>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <p class="privacy-note">
+          Ihre Angaben werden ausschließlich zur Bearbeitung der Anfrage
+          verarbeitet — Details in der
+          <a href="/datenschutz/">Datenschutzerklärung</a>.
+        </p>
+        <div><button class="btn btn-primary" type="submit">Nachricht senden</button></div>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const p = new URLSearchParams(location.search);
+    if (p.get("sent") === "1") document.getElementById("sent-ok")?.removeAttribute("hidden");
+    if (p.get("sent") === "0") document.getElementById("sent-err")?.removeAttribute("hidden");
+  </script>
+
+  <style>
+    .ok { background: #f0fdf4; border: 1px solid #86efac; color: #14532d; border-radius: 10px; padding: 0.9rem 1.1rem; max-width: 560px; }
+    .err { background: #fef2f2; border: 1px solid #fca5a5; color: #7f1d1d; border-radius: 10px; padding: 0.9rem 1.1rem; max-width: 560px; }
+    .privacy-note { font-size: 0.88rem; color: var(--slate); margin: 0; }
+  </style>
+</Base>
