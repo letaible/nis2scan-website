@@ -1,5 +1,13 @@
 /* nis2scan — design tokens. Calm, technical, trustworthy: deep navy + a single
    signal accent. System fonts (no external requests → DSGVO-freundlich, fast). */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --navy-900: #0b1b34;
   --navy-800: #12294d;
@@ -15,8 +23,8 @@
   --border: #e2e8f0;
   --radius: 12px;
   --maxw: 1120px;
-  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
   --mono: "SFMono-Regular", ui-monospace, "Cascadia Code", Consolas, monospace;
 }
 
@@ -31,8 +39,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 h1, h2, h3 { line-height: 1.2; color: var(--navy-900); font-weight: 700; }
-h1 { font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); letter-spacing: -0.025em; font-weight: 800; }
+h2 { font-size: clamp(1.55rem, 3.5vw, 2.35rem); letter-spacing: -0.025em; font-weight: 750; }
 a { color: var(--navy-700); }
 p { color: var(--slate); }
 
@@ -156,3 +164,35 @@ p { color: var(--slate); }
 }
 .form input:focus, .form textarea:focus { outline: 2px solid var(--navy-700); outline-offset: 1px; }
 .form .hp { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+
+
+/* --- Runde 2: Feinschliff (23.07.2026) --- */
+.accent-word { color: var(--accent); }
+.divider-fade { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; counter-reset: step; }
+@media (max-width: 820px) { .steps { grid-template-columns: 1fr; } }
+.step { position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; }
+.step::before {
+  counter-increment: step; content: "0" counter(step);
+  font-family: var(--mono); font-weight: 700; font-size: 0.9rem;
+  color: var(--accent-600); letter-spacing: 0.05em;
+}
+.step h3 { margin: 0.5rem 0 0.5rem; font-size: 1.1rem; }
+.step p { margin: 0; font-size: 0.96rem; }
+.step code { font-family: var(--mono); background: var(--paper); border: 1px solid var(--border); padding: 0.1em 0.4em; border-radius: 6px; font-size: 0.88em; }
+
+.covline { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.65rem 0; border-bottom: 1px solid var(--border); }
+.covline:last-child { border-bottom: none; }
+.covline .mark { flex: none; width: 22px; height: 22px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; margin-top: 0.1rem; }
+.covline.yes .mark { background: #dcfce7; color: #166534; }
+.covline.no .mark { background: #fee2e2; color: #991b1b; }
+.covline p { margin: 0; color: var(--ink); font-size: 0.97rem; }
+.covline p small { color: var(--slate); display: block; font-size: 0.88rem; }
+
+.faq details { border: 1px solid var(--border); border-radius: 12px; background: #fff; padding: 0; margin-bottom: 0.75rem; overflow: hidden; }
+.faq summary { cursor: pointer; font-weight: 650; color: var(--navy-900); padding: 1rem 1.2rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--accent-600); font-weight: 700; font-size: 1.2rem; }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { margin: 0; padding: 0 1.2rem 1.1rem; color: var(--slate); }
