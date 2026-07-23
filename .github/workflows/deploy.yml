@@ -1,0 +1,55 @@
+# Auto-Deploy auf den Strato-Webspace bei jedem Push auf main.
+# Benoetigt das Org-Secret STRATO_SFTP_PASSWORD (letaible-Org -> Settings ->
+# Secrets and variables -> Actions). User/Host sind keine Geheimnisse.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+env:
+  SFTP_USER: su1249398
+  SFTP_HOST: 5019618796.ssh.w2.strato.hosting
+  REMOTE_DIR: nis2scan
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Check secret
+        env:
+          SFTP_PASSWORD: ${{ secrets.STRATO_SFTP_PASSWORD }}
+        run: |
+          if [ -z "$SFTP_PASSWORD" ]; then
+            echo "::error::Secret STRATO_SFTP_PASSWORD fehlt (Org-Secret in der letaible-Org anlegen)."
+            exit 1
+          fi
+
+      - name: Deploy via SFTP (lftp mirror)
+        env:
+          SFTP_PASSWORD: ${{ secrets.STRATO_SFTP_PASSWORD }}
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q lftp
+          lftp -u "$SFTP_USER","$SFTP_PASSWORD" "sftp://$SFTP_HOST" -e "
+            set sftp:auto-confirm yes;
+            set net:max-retries 2;
+            mirror -R --delete --verbose dist $REMOTE_DIR;
+            quit"
+          echo "Deploy nach /$REMOTE_DIR abgeschlossen."
