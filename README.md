@@ -17,10 +17,11 @@ npm run preview    # gebautes dist/ lokal ansehen
 Strato-Webspace (FTP-Upload von `dist/`), Cloudflare Pages oder GitHub Pages.
 `site` in `astro.config.mjs` steht auf `https://nis2scan.de`.
 
-## Vor dem Livegang (Pflicht)
+## Deployment auf Strato (aktueller Stand)
 
-- **Impressum** (`src/pages/impressum.astro`): alle `[…]`-Platzhalter mit den
-  echten Betreiberangaben (letaible / Inhaber) füllen.
-- **Datenschutz** (`src/pages/datenschutz.astro`): Hosting-Anbieter (EU-Region),
-  Log-Speicherdauer und zuständige Aufsichtsbehörde eintragen.
-- Quelle der Rechtstexte: `../nis2scan-planning/recht/` (anwaltlich zu prüfen).
+Impressum, Datenschutzerklärung und Kontaktformular sind mit den echten
+Angaben der Letaible GmbH gefüllt. Zum Livegang: Inhalt von `dist/` per SFTP
+in das Verzeichnis `htdocs/nis2scan` laden, Domain nis2scan.de in der
+Strato-Domainverwaltung auf dieses Verzeichnis zeigen lassen, SSL aktivieren.
+Das Kontaktformular (`public/kontakt.php`) funktioniert erst auf dem
+Strato-Server (PHP), nicht in der lokalen Vorschau.
