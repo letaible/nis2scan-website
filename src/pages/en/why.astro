@@ -1,0 +1,132 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+
+<Base title="Why nis2scan · nis2scan" description="What sets nis2scan apart from other cloud scanners, and honest answers to fair questions." lang="en" altUrl="/warum/">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Why nis2scan</p>
+      <h1 class="h-underline">There are many cloud scanners. This one answers a different question.</h1>
+      <p class="lede" style="margin:1.25rem 0 2rem">
+        Most tools tell you what is misconfigured in your cloud. nis2scan
+        answers the question that matters in an audit: does your evidence hold
+        up against §30 BSIG, the German NIS2 implementation?
+      </p>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Legal basis in every finding</h3>
+          <p>Every finding quotes the specific obligation from §30 (2) BSIG
+          verbatim and names the matching ISO 27001:2022 control. That is the
+          language auditors and management understand.</p>
+        </div>
+        <div class="why-card">
+          <h3>Positive evidence, not just a defect list</h3>
+          <p>What is in order gets documented too, with machine-readable
+          evidence. An audit needs proof of what is fulfilled, not only a list
+          of what is missing.</p>
+        </div>
+        <div class="why-card">
+          <h3>Scan limits stated in the report</h3>
+          <p>Every check documents what it fundamentally cannot see. The
+          report never claims more than was checked. Everything that cannot be
+          scanned is covered by the attestation checklist.</p>
+        </div>
+        <div class="why-card">
+          <h3>Documented exceptions</h3>
+          <p>False positives and accepted risks can be documented as
+          exceptions with a rationale and an expiry date. The finding stays
+          visible and the risk decision becomes auditable. No silent
+          filtering.</p>
+        </div>
+        <div class="why-card">
+          <h3>Strictly read-only</h3>
+          <p>nis2scan only reads. The permissions generator produces the
+          minimal read rights needed for AWS, Azure, and GCP. Your data never
+          leaves your environment because the scan runs on your side.</p>
+        </div>
+        <div class="why-card">
+          <h3>Open code, open legal review</h3>
+          <p>Apache 2.0, source on GitHub. Every legally phrased statement
+          goes through a documented four-eyes review whose protocol is public
+          in the repository.</p>
+        </div>
+      </div>
+
+      <h2 class="h-underline" style="margin-top:3.5rem">When in doubt, never "passed"</h2>
+      <p style="max-width:720px">
+        A compliance scanner can fail in two ways. It can report a defect that
+        is not one: annoying, but fixable. Or it can attest compliance that is
+        not proven: for an audit tool this is the worst possible failure,
+        because one false positive proof undermines trust in all of your
+        evidence.
+      </p>
+      <p style="max-width:720px">
+        nis2scan draws a hard conclusion from this: if an API returns an
+        error, a permission is missing, or a response is ambiguous, the tool
+        does not say "compliant" but reports the error openly. Positive
+        evidence only ever comes from a solid, documented API response. And
+        with every release, integration tests against real cloud environments
+        with intentionally built-in gaps prove that defects are actually found
+        and compliance is actually recognized.
+      </p>
+
+      <h2 class="h-underline" style="margin-top:3.5rem">Honest answers to fair questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>What if the project disappears tomorrow?</h3>
+          <p>The code is open source (Apache 2.0) and runs entirely on your
+          side. There is no server of ours you depend on and no lock-in. What
+          you install today keeps working.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is the legal mapping reliable?</h3>
+          <p>Every mapping from check to legal text has gone through a
+          documented four-eyes review; the protocol is public in the
+          repository. Still: nis2scan is not legal advice and not a
+          certificate, but the technical evidence layer underneath. It never
+          preempts the judgment of an auditor or authority.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Why should we give a tool access to our cloud?</h3>
+          <p>Access is strictly read-only and minimal: the permissions
+          generator produces exactly the read rights the checks need,
+          traceable line by line. The source code is open and auditable. There
+          is no backchannel to us.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Our world is Microsoft 365, not AWS.</h3>
+          <p>Today nis2scan covers AWS and Azure in full depth; GCP checks are
+          included and legally reviewed. Support for Microsoft 365 (Exchange
+          Online, SharePoint, Teams) is in preparation. What the tool cannot
+          scan is covered by the attestation checklist.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Other scanners are free too.</h3>
+          <p>So is nis2scan, all checks and all providers. The difference is
+          not the price but the legal grounding: German legal citations,
+          positive evidence, stated scan limits, and an audit-ready report. To
+          our knowledge no other free tool does this.</p>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/letaible/nis2scan#installation" rel="noopener">Get started in 5 minutes</a>
+        <a class="btn btn-outline" href="/en/contact/">Questions? Write to us</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .why-card { border: 1px solid #e2e8f0; border-radius: 14px; padding: 1.4rem 1.5rem; background: #fff; }
+    .why-card h3 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--navy-900, #0b1b34); }
+    .why-card p { margin: 0; color: var(--slate); font-size: 0.95rem; line-height: 1.55; }
+    .faq-list { display: grid; gap: 1.25rem; max-width: 760px; }
+    .faq-item { border-left: 3px solid #f59e0b; padding-left: 1.1rem; }
+    .faq-item h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+    .faq-item p { margin: 0; color: var(--slate); line-height: 1.6; }
+    .cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 3rem; }
+    .btn-outline { border: 1px solid #cbd5e1; color: var(--navy-900, #0b1b34); }
+  </style>
+</Base>

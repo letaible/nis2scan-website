@@ -1,0 +1,135 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Warum nis2scan · nis2scan" description="Was nis2scan von anderen Cloud-Scannern unterscheidet, und ehrliche Antworten auf berechtigte Fragen." altUrl="/en/why/">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Warum nis2scan</p>
+      <h1 class="h-underline">Es gibt viele Cloud-Scanner. Dieser beantwortet eine andere Frage.</h1>
+      <p class="lede" style="margin:1.25rem 0 2rem">
+        Die meisten Werkzeuge sagen Ihnen, was in Ihrer Cloud falsch konfiguriert ist.
+        nis2scan beantwortet die Frage, die im Audit zählt: Hält Ihr Nachweis
+        gegenüber §30 BSIG stand?
+      </p>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>Rechtsgrundlage in jedem Befund</h3>
+          <p>Jeder Befund zitiert die konkrete Pflicht aus §30 Abs. 2 BSIG im
+          Wortlaut und nennt den passenden ISO-27001:2022-Control. Das ist die
+          Sprache, die Auditoren und Geschäftsleitung verstehen.</p>
+        </div>
+        <div class="why-card">
+          <h3>Positivnachweise statt nur Mängelliste</h3>
+          <p>Auch was in Ordnung ist, wird dokumentiert, mit maschinenlesbarer
+          Evidenz. Ein Audit braucht Nachweise für das Erfüllte, nicht nur eine
+          Liste des Fehlenden.</p>
+        </div>
+        <div class="why-card">
+          <h3>Prüfgrenzen stehen im Report</h3>
+          <p>Jeder Check dokumentiert, was er prinzipiell nicht sehen kann.
+          Der Report behauptet nie mehr, als geprüft wurde. Für alles
+          Nicht-Scanbare gibt es die Attestierungs-Checkliste.</p>
+        </div>
+        <div class="why-card">
+          <h3>Dokumentierte Ausnahmen</h3>
+          <p>False Positives und akzeptierte Risiken lassen sich mit Vermerk
+          und Ablaufdatum als Ausnahme dokumentieren. Der Befund bleibt
+          sichtbar, die Risikoentscheidung wird nachweisbar. Kein stilles
+          Wegfiltern.</p>
+        </div>
+        <div class="why-card">
+          <h3>Strikt read-only</h3>
+          <p>nis2scan liest nur. Der Permissions-Generator erzeugt die minimal
+          nötigen Leserechte für AWS, Azure und GCP. Ihre Daten verlassen Ihr
+          Haus nicht, denn der Scan läuft bei Ihnen.</p>
+        </div>
+        <div class="why-card">
+          <h3>Offener Code, offenes Rechts-Review</h3>
+          <p>Apache 2.0, Quellcode auf GitHub. Jede rechtlich formulierende
+          Aussage durchläuft ein dokumentiertes Vier-Augen-Review, dessen
+          Protokoll öffentlich im Repository liegt.</p>
+        </div>
+      </div>
+
+      <h2 class="h-underline" style="margin-top:3.5rem">Im Zweifel niemals „bestanden"</h2>
+      <p style="max-width:720px">
+        Ein Compliance-Scanner kann auf zwei Arten irren. Er meldet einen
+        Mangel, der keiner ist: ärgerlich, aber korrigierbar. Oder er
+        attestiert Konformität, die nicht belegt ist: Für ein Audit-Werkzeug
+        ist das der schlimmste Fehler, denn ein falscher Positivnachweis
+        untergräbt das Vertrauen in alle Ihre Nachweise.
+      </p>
+      <p style="max-width:720px">
+        nis2scan zieht daraus eine harte Konsequenz: Wenn eine API einen
+        Fehler liefert, eine Berechtigung fehlt oder eine Antwort mehrdeutig
+        ist, sagt das Tool nicht „konform", sondern weist den Fehler offen im
+        Report aus. Ein Positivnachweis entsteht nur aus einer belastbaren,
+        dokumentierten API-Antwort. Und bei jedem Release beweisen
+        Integrationstests gegen echte Cloud-Umgebungen mit absichtlich
+        eingebauten Lücken, dass Mängel wirklich gefunden und Konformität
+        wirklich erkannt wird.
+      </p>
+
+      <h2 class="h-underline" style="margin-top:3.5rem">Ehrliche Antworten auf berechtigte Fragen</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Was, wenn es das Projekt morgen nicht mehr gibt?</h3>
+          <p>Der Code ist Open Source (Apache 2.0) und läuft vollständig bei
+          Ihnen. Es gibt keinen Server von uns, den Sie brauchen, und keinen
+          Lock-in. Was Sie heute installieren, funktioniert auch dann noch.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Ist das Rechts-Mapping belastbar?</h3>
+          <p>Jede Zuordnung von Check zu Gesetzestext hat ein dokumentiertes
+          Vier-Augen-Review durchlaufen; das Protokoll ist im Repository
+          einsehbar. Trotzdem gilt: nis2scan ist keine Rechtsberatung und kein
+          Zertifikat, sondern die technische Nachweis-Ebene darunter. Die
+          Bewertung durch Auditor oder Aufsicht nimmt es nicht vorweg.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Warum sollten wir einem Tool Zugriff auf unsere Cloud geben?</h3>
+          <p>Der Zugriff ist strikt lesend und minimal: Der
+          Permissions-Generator erzeugt genau die Leserechte, die die Checks
+          brauchen, nachvollziehbar Zeile für Zeile. Der Quellcode ist offen
+          und auditierbar. Es gibt keinen Rückkanal zu uns.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Unsere Welt ist Microsoft 365, nicht AWS.</h3>
+          <p>Heute prüft nis2scan AWS und Azure in voller Tiefe; GCP-Checks
+          sind enthalten und rechtsgeprüft. Eine Unterstützung für Microsoft
+          365 (Exchange Online, SharePoint, Teams) ist in Vorbereitung. Was
+          das Tool nicht prüfen kann, deckt die Attestierungs-Checkliste
+          dokumentarisch ab.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Andere Scanner sind auch kostenlos.</h3>
+          <p>nis2scan ebenfalls, alle Checks und alle Provider. Der
+          Unterschied liegt nicht im Preis, sondern im Rechtsbezug: deutsche
+          Gesetzeszitate, Positivnachweise, Prüfgrenzen und ein auditfähiger
+          Report. Das leistet nach unserem Wissen kein anderes freies
+          Werkzeug.</p>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/letaible/nis2scan#installation" rel="noopener">Loslegen in 5 Minuten</a>
+        <a class="btn btn-outline" href="/kontakt/">Fragen? Schreiben Sie uns</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .why-card { border: 1px solid #e2e8f0; border-radius: 14px; padding: 1.4rem 1.5rem; background: #fff; }
+    .why-card h3 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--navy-900, #0b1b34); }
+    .why-card p { margin: 0; color: var(--slate); font-size: 0.95rem; line-height: 1.55; }
+    .faq-list { display: grid; gap: 1.25rem; max-width: 760px; }
+    .faq-item { border-left: 3px solid #f59e0b; padding-left: 1.1rem; }
+    .faq-item h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+    .faq-item p { margin: 0; color: var(--slate); line-height: 1.6; }
+    .cta-row { display: flex; gap: 0.9rem; flex-wrap: wrap; margin-top: 3rem; }
+    .btn-outline { border: 1px solid #cbd5e1; color: var(--navy-900, #0b1b34); }
+  </style>
+</Base>

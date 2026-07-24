@@ -17,6 +17,8 @@ const t =
         brandAria: "nis2scan homepage",
         navFeatures: "Features",
         navLegal: "Legal mapping",
+        navWhy: "Why nis2scan",
+        whyHref: "/en/why/",
         navGithub: "GitHub",
         navCta: "Get started",
         footNote:
@@ -29,6 +31,8 @@ const t =
         brandAria: "nis2scan Startseite",
         navFeatures: "Funktionen",
         navLegal: "Rechtsbezug",
+        navWhy: "Warum nis2scan",
+        whyHref: "/warum/",
         navGithub: "GitHub",
         navCta: "Loslegen",
         footNote:
@@ -78,6 +82,7 @@ const t =
         <nav class="nav">
           <a href={`${home}#funktionen`}>{t.navFeatures}</a>
           <a href={`${home}#recht`}>{t.navLegal}</a>
+          <a href={t.whyHref}>{t.navWhy}</a>
           <a href="https://github.com/letaible/nis2scan" rel="noopener">{t.navGithub}</a>
           <a class="btn btn-primary btn-sm" href="https://github.com/letaible/nis2scan#installation" rel="noopener">{t.navCta}</a>
           <a class="lang-switch" href={resolvedAltUrl}>{lang === "de" ? "EN" : "DE"}</a>
