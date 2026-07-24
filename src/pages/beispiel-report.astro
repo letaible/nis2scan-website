@@ -1,0 +1,45 @@
+---
+import Base from "../layouts/Base.astro";
+import * as report from "../data/beispiel-report.md";
+---
+
+<Base title="Beispiel-Report · nis2scan" description="Ein vollständiger nis2scan-Beispiel-Report gegen eine fiktive Demo-Umgebung, erzeugt mit dem echten Report-Generator." altUrl="/en/sample-report/">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Beispiel-Report</p>
+      <h1 class="h-underline">So sieht ein nis2scan-Report aus.</h1>
+      <p class="lede" style="margin:1.25rem 0 1.5rem">
+        Der folgende Report wurde mit dem echten Report-Generator von nis2scan
+        erzeugt, gegen eine fiktive Demo-Umgebung. Er zeigt alle Elemente
+        eines echten Scans: Erfüllungsgrad-Matrix, Mängel mit Gesetzeszitat
+        und Remediation, Positivnachweise, dokumentierte Ausnahmen,
+        Prüfgrenzen und die Attestierungs-Checkliste.
+      </p>
+      <div class="demo-banner">
+        Demo-Daten: Die „Demo Firma GmbH", alle Ressourcen-Namen und Befunde
+        sind erfunden. Die Report-Texte, Gesetzeszitate und die Bewertungs-
+        logik sind identisch mit einem echten Scan.
+      </div>
+
+      <div class="report-body">
+        <report.Content />
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .demo-banner { background: #fffbeb; border: 1px solid #fcd34d; color: #78350f; border-radius: 10px; padding: 0.9rem 1.1rem; max-width: 760px; margin-bottom: 2.5rem; font-size: 0.92rem; }
+    .report-body { border: 1px solid #e2e8f0; border-radius: 14px; padding: 2rem 2.25rem; background: #fff; overflow-x: auto; }
+    .report-body :global(h1) { font-size: 1.5rem; margin-top: 0; }
+    .report-body :global(h2) { font-size: 1.05rem; margin: 0.3rem 0; font-weight: 600; color: var(--slate); }
+    .report-body :global(h3) { font-size: 1.25rem; margin-top: 2.2rem; border-bottom: 2px solid #f59e0b; padding-bottom: 0.3rem; }
+    .report-body :global(h4) { font-size: 1.05rem; margin-top: 1.6rem; }
+    .report-body :global(h5) { font-size: 0.98rem; margin-top: 1.2rem; }
+    .report-body :global(table) { border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    .report-body :global(th), .report-body :global(td) { border: 1px solid #e2e8f0; padding: 0.45rem 0.7rem; text-align: left; }
+    .report-body :global(th) { background: #f8fafc; }
+    .report-body :global(hr) { border: none; border-top: 1px solid #e2e8f0; margin: 2rem 0; }
+    .report-body :global(blockquote) { border-left: 3px solid #cbd5e1; margin: 0.8rem 0; padding-left: 1rem; color: var(--slate); }
+    .report-body :global(code) { background: #f1f5f9; border-radius: 4px; padding: 0.1rem 0.35rem; font-size: 0.85em; }
+  </style>
+</Base>
