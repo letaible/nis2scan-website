@@ -19,6 +19,10 @@ const t =
         navLegal: "Legal mapping",
         navWhy: "Why nis2scan",
         whyHref: "/en/why/",
+        footSecurity: "Security",
+        securityHref: "/en/security/",
+        footReport: "Sample report",
+        reportHref: "/en/sample-report/",
         navGithub: "GitHub",
         navCta: "Get started",
         footNote:
@@ -33,6 +37,10 @@ const t =
         navLegal: "Rechtsbezug",
         navWhy: "Warum nis2scan",
         whyHref: "/warum/",
+        footSecurity: "Sicherheit",
+        securityHref: "/sicherheit/",
+        footReport: "Beispiel-Report",
+        reportHref: "/beispiel-report/",
         navGithub: "GitHub",
         navCta: "Loslegen",
         footNote:
@@ -101,6 +109,9 @@ const t =
           <p class="foot-note">{t.footNote}</p>
         </div>
         <nav class="foot-links">
+          <a href={t.whyHref}>{t.navWhy}</a>
+          <a href={t.reportHref}>{t.footReport}</a>
+          <a href={t.securityHref}>{t.footSecurity}</a>
           <a href="https://github.com/letaible/nis2scan" rel="noopener">GitHub</a>
           <a href="https://pypi.org/project/nis2scan/" rel="noopener">PyPI</a>
           <a href="https://letaible.de" rel="noopener">letaible</a>
