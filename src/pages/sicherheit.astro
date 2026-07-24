@@ -1,0 +1,95 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Sicherheits-Selbstauskunft · nis2scan" description="Architektur, Berechtigungsmodell und Entwicklungssicherheit von nis2scan, zusammengefasst für Einkauf und Lieferantenprüfung." altUrl="/en/security/">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Für Einkauf und Lieferantenprüfung</p>
+      <h1 class="h-underline">Sicherheits-Selbstauskunft</h1>
+      <p class="lede" style="margin:1.25rem 0 1rem">
+        Wenn Ihre Lieferkettenprüfung nach §30 Abs. 2 Nr. 4 BSIG Fragen an uns
+        stellt, finden Sie hier die Antworten vorab. Stand: Juli 2026. Diese
+        Seite lässt sich direkt als PDF drucken.
+      </p>
+
+      <h2>1. Was nis2scan ist und wo es läuft</h2>
+      <p>nis2scan ist ein Open-Source-Kommandozeilenwerkzeug (Apache 2.0),
+      das Cloud-Umgebungen gegen die zehn Maßnahmen des §30 Abs. 2 BSIG
+      prüft. Es wird über den Python-Paketindex (PyPI) installiert und läuft
+      vollständig in Ihrer Umgebung. Es gibt keinen Server von uns, der am
+      Scan beteiligt ist.</p>
+
+      <h2>2. Datenflüsse</h2>
+      <ul>
+        <li>Der Scan liest Konfigurationsdaten über die offiziellen APIs von
+        AWS, Azure und GCP und schreibt den Report lokal auf Ihr System.</li>
+        <li>nis2scan sendet keine Telemetrie und baut keine Verbindung zu
+        Servern der Letaible GmbH auf. Wir erhalten keine Scan-Ergebnisse,
+        keine Ressourcen-Namen und keine Metadaten.</li>
+        <li>Für die Weitergabe von Reports an Dritte existiert ein
+        Export-Profil, das identifizierende Angaben (Namen, IDs, ARNs)
+        pseudonymisiert.</li>
+      </ul>
+
+      <h2>3. Berechtigungsmodell</h2>
+      <ul>
+        <li>Strikt lesend: nis2scan verändert, erstellt und löscht keine
+        Cloud-Ressourcen. Es fordert keine Schreibrechte an.</li>
+        <li>Der eingebaute Permissions-Generator erzeugt die minimal nötigen
+        Leserechte je Provider (IAM-Policy, Azure-RBAC, GCP-Rolle),
+        nachvollziehbar Zeile für Zeile, auch als Terraform-Export.</li>
+        <li>Empfohlene Zugangswege sind kurzlebige Credentials: SSO über
+        Ihren Identity Provider oder Cross-Account-Rollen mit ExternalId.
+        Statische Schlüssel sind nicht erforderlich.</li>
+      </ul>
+
+      <h2>4. Entwicklungssicherheit</h2>
+      <ul>
+        <li>Der vollständige Quellcode ist öffentlich:
+        github.com/letaible/nis2scan.</li>
+        <li>Über 500 automatisierte Tests laufen bei jeder Änderung;
+        zusätzlich prüfen Integrationstests gegen echte Cloud-Umgebungen mit
+        absichtlich eingebauten Lücken, dass die Checks Mängel wirklich
+        finden.</li>
+        <li>Die CI/CD-Pipeline nutzt OIDC-Federation statt gespeicherter
+        Cloud-Zugangsdaten; es existieren keine statischen Secrets für die
+        Test-Umgebungen.</li>
+        <li>Releases werden über PyPI Trusted Publishing veröffentlicht
+        (kein API-Token, Provenance über OIDC).</li>
+        <li>Jede rechtlich formulierende Aussage im Produkt durchläuft ein
+        dokumentiertes Vier-Augen-Review; das Protokoll liegt öffentlich im
+        Repository.</li>
+      </ul>
+
+      <h2>5. Fehlerkultur des Produkts</h2>
+      <p>nis2scan folgt einer Fail-safe-Linie: Kann ein Zustand nicht sicher
+      festgestellt werden (API-Fehler, fehlende Berechtigung, mehrdeutige
+      Antwort), wird niemals Konformität behauptet. Fehler werden offen im
+      Report ausgewiesen, und jeder Check dokumentiert seine Prüfgrenzen.</p>
+
+      <h2>6. Verantwortlicher Anbieter</h2>
+      <p>Letaible GmbH, Fichtenstraße 30A, 90763 Fürth · Amtsgericht Fürth,
+      HRB 20612 · Kontakt: info@letaible.de. Bei der Nutzung des freien
+      CLI-Werkzeugs verarbeitet die Letaible GmbH keine personenbezogenen
+      Daten Ihrer Organisation; eine Auftragsverarbeitung findet nicht
+      statt.</p>
+
+      <p class="closing-note">Für vertiefende Fragen Ihrer Sicherheits- oder
+      Einkaufsabteilung: <a href="/kontakt/">Schreiben Sie uns</a>. Wir
+      beantworten Lieferantenfragebögen zu nis2scan zeitnah.</p>
+    </div>
+  </section>
+
+  <style>
+    h2 { margin: 2.2rem 0 0.7rem; font-size: 1.25rem; }
+    ul { margin: 0; padding-left: 1.2rem; max-width: 760px; }
+    li { margin-bottom: 0.5rem; color: var(--slate); line-height: 1.6; }
+    p { max-width: 760px; color: var(--slate); line-height: 1.65; }
+    .lede { color: inherit; }
+    .closing-note { margin-top: 2.5rem; border-left: 3px solid #f59e0b; padding-left: 1.1rem; }
+    @media print {
+      :global(.site-head), :global(.site-foot) { display: none; }
+    }
+  </style>
+</Base>

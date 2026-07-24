@@ -1,0 +1,89 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+
+<Base title="Security self-disclosure · nis2scan" description="Architecture, permission model, and development security of nis2scan, summarized for procurement and supplier reviews." lang="en" altUrl="/sicherheit/">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">For procurement and supplier reviews</p>
+      <h1 class="h-underline">Security self-disclosure</h1>
+      <p class="lede" style="margin:1.25rem 0 1rem">
+        If your supply chain review under §30 (2) no. 4 BSIG has questions
+        for us, here are the answers up front. As of July 2026. This page
+        prints directly to PDF.
+      </p>
+
+      <h2>1. What nis2scan is and where it runs</h2>
+      <p>nis2scan is an open-source command-line tool (Apache 2.0) that
+      checks cloud environments against the ten measures of §30 (2) BSIG. It
+      installs from the Python Package Index (PyPI) and runs entirely inside
+      your environment. No server of ours is involved in the scan.</p>
+
+      <h2>2. Data flows</h2>
+      <ul>
+        <li>The scan reads configuration data through the official APIs of
+        AWS, Azure, and GCP and writes the report locally to your system.</li>
+        <li>nis2scan sends no telemetry and opens no connection to Letaible
+        GmbH servers. We receive no scan results, no resource names, and no
+        metadata.</li>
+        <li>For sharing reports with third parties there is an export profile
+        that pseudonymizes identifying values (names, IDs, ARNs).</li>
+      </ul>
+
+      <h2>3. Permission model</h2>
+      <ul>
+        <li>Strictly read-only: nis2scan does not modify, create, or delete
+        cloud resources and requests no write permissions.</li>
+        <li>The built-in permissions generator produces the minimal read
+        rights per provider (IAM policy, Azure RBAC, GCP role), traceable
+        line by line, also as a Terraform export.</li>
+        <li>Recommended access paths use short-lived credentials: SSO through
+        your identity provider or cross-account roles with an ExternalId.
+        Static keys are not required.</li>
+      </ul>
+
+      <h2>4. Development security</h2>
+      <ul>
+        <li>The full source code is public: github.com/letaible/nis2scan.</li>
+        <li>More than 500 automated tests run on every change; in addition,
+        integration tests against real cloud environments with intentionally
+        built-in gaps prove that the checks actually find defects.</li>
+        <li>The CI/CD pipeline uses OIDC federation instead of stored cloud
+        credentials; no static secrets exist for the test environments.</li>
+        <li>Releases are published through PyPI Trusted Publishing (no API
+        token, provenance via OIDC).</li>
+        <li>Every legally phrased statement in the product goes through a
+        documented four-eyes review; the protocol is public in the
+        repository.</li>
+      </ul>
+
+      <h2>5. How the product handles uncertainty</h2>
+      <p>nis2scan follows a fail-safe line: if a state cannot be determined
+      reliably (API error, missing permission, ambiguous response), it never
+      claims compliance. Errors are reported openly, and every check
+      documents its scan limits.</p>
+
+      <h2>6. Responsible provider</h2>
+      <p>Letaible GmbH, Fichtenstrasse 30A, 90763 Fuerth, Germany · Fuerth
+      local court, HRB 20612 · Contact: info@letaible.de. When you use the
+      free CLI tool, Letaible GmbH processes no personal data of your
+      organization; no data processing agreement is required.</p>
+
+      <p class="closing-note">For deeper questions from your security or
+      procurement team: <a href="/en/contact/">write to us</a>. We answer
+      supplier questionnaires about nis2scan promptly.</p>
+    </div>
+  </section>
+
+  <style>
+    h2 { margin: 2.2rem 0 0.7rem; font-size: 1.25rem; }
+    ul { margin: 0; padding-left: 1.2rem; max-width: 760px; }
+    li { margin-bottom: 0.5rem; color: var(--slate); line-height: 1.6; }
+    p { max-width: 760px; color: var(--slate); line-height: 1.65; }
+    .lede { color: inherit; }
+    .closing-note { margin-top: 2.5rem; border-left: 3px solid #f59e0b; padding-left: 1.1rem; }
+    @media print {
+      :global(.site-head), :global(.site-foot) { display: none; }
+    }
+  </style>
+</Base>
